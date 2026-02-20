@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HPV Awareness Survey</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2c3e50;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 70px;
+      }
+
+      .options {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .options label {
+        font-weight: normal;
+      }
+
+      button {
+        background: #2c7be5;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background: #1a5fd0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>HPV Awareness & Vaccination Survey</h2>
+
+      <form id="hpvForm">
+        <!-- BASIC INFO -->
+
+        <div class="form-group">
+          <label>Patient No:</label>
+          <input type="number" name="patient_no" required />
+        </div>
+        <div class="form-group">
+          <label>1. Age:</label>
+          <input type="number" name="age" required />
+        </div>
+
+        <div class="form-group">
+          <label>2. Gender:</label>
+          <select name="gender">
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>3. Region:</label>
+          <input type="text" name="region" />
+        </div>
+
+        <div class="form-group">
+          <label>4. Have you heard of HPV?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="heard_hpv" value="Yes" /> Yes</label
+            >
+            <label><input type="radio" name="heard_hpv" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>5. If Yes, where (source)?</label>
+          <div class="options">
+            <label
+              ><input
+                type="checkbox"
+                name="source[]"
+                value="General knowledge"
+              />
+              General knowledge</label
+            >
+            <label
+              ><input type="checkbox" name="source[]" value="Internet" />
+              Internet</label
+            >
+            <label
+              ><input type="checkbox" name="source[]" value="Friend/Family" />
+              Friend/Family</label
+            >
+            <label
+              ><input type="checkbox" name="source[]" value="Media" />
+              Media</label
+            >
+            <label
+              ><input type="checkbox" name="source[]" value="Others" />
+              Others</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>6. When did you hear about HPV?</label>
+          <input type="text" name="when_heard" />
+        </div>
+
+        <div class="form-group">
+          <label>7. What do you know about HPV?</label>
+          <textarea name="hpv_knowledge"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>8a. Have you been offered the HPV vaccination?</label>
+          <div class="options">
+            <label>
+              <input type="radio" name="offered_vaccine_self" value="Yes" />
+              Yes
+            </label>
+            <label>
+              <input type="radio" name="offered_vaccine_self" value="No" />
+              No
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            >8b. Has your child / member of your family been offered the HPV
+            vaccination?</label
+          >
+          <div class="options">
+            <label>
+              <input type="radio" name="offered_vaccine_family" value="Yes" />
+              Yes
+            </label>
+            <label>
+              <input type="radio" name="offered_vaccine_family" value="No" />
+              No
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="offered_vaccine_family"
+                value="Not Applicable"
+              />
+              Not Applicable
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>9. Do you know anyone vaccinated?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="know_vaccinated" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="know_vaccinated" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>10. What were you informed about HPV vaccination?</label>
+          <textarea name="vaccine_info"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>11. If refused vaccination, what was the reason?</label>
+          <textarea name="refusal_reason"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>12. Are you aware of HPV relation to cancer?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="hpv_cancer_relation" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="hpv_cancer_relation" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>13. If Yes, what cancer?</label>
+          <input type="text" name="which_cancer" />
+        </div>
+
+        <div class="form-group">
+          <label>14. Have you heard of HPV causing head and neck cancer?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="head_neck_cancer" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="head_neck_cancer" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <!-- NEW QUESTIONS START HERE -->
+
+        <div class="form-group">
+          <label
+            >15. Are you aware of HPV and head & neck cancer? If yes,Where did
+            you hear about it?</label
+          >
+          <textarea name="aware_head_neck_source"></textarea>
+        </div>
+        <div class="form-group">
+          <label
+            >16. Are you aware of HPV and head & neck cancer? If yes, what age
+            did you find out?</label
+          >
+          <textarea name="aware_head_neck_age"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >17. Are you aware of the symptoms usually associated with
+            HPV-related head & neck cancers?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="aware_symptoms" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="aware_symptoms" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            >18. Are you aware of the affected age group and route of
+            transmission?</label
+          >
+          <textarea name="affected_group_route"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >19. Are you aware of what part of the head and neck it mainly
+            affects?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="affected_part" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="affected_part" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>20. Are you aware of any prevention methods?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="prevention_methods" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="prevention_methods" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>21. If Yes, what are these?</label>
+          <textarea name="prevention_details"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >22. Is there much information available to the general public about
+            this virus and cancer association?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="public_info" value="Yes" /> Yes</label
+            >
+            <label
+              ><input type="radio" name="public_info" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            >23. Would you suggest the government/health authorities do more to
+            make the public more aware? If So how would you suggest it can be
+            done? eg: Media like TV campaign, door leaflets, GPs, postal,
+            posters...etc</label
+          >
+          <textarea name="gov_awareness"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >24. Has this information made you more informed and would you share
+            it?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="more_informed" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="more_informed" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>25. Has this made you more curious to research further?</label>
+          <div class="options">
+            <label><input type="radio" name="curious" value="Yes" /> Yes</label>
+            <label><input type="radio" name="curious" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>26. Are you aware of any way to prevent this virus?</label>
+          <textarea name="prevent_virus"></textarea>
+        </div>
+
+        <!-- CONTINUED ORIGINAL QUESTIONS -->
+
+        <div class="form-group">
+          <label
+            >27. Have you heard about HPV vaccine to prevent cervical cancer in
+            women?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="cervical_vaccine" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="cervical_vaccine" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            >28. Are you aware this vaccine can prevent head & neck
+            cancer?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="prevent_head_neck" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="prevent_head_neck" value="No" />
+              No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>29. Who is vaccinated and which age group?</label>
+          <textarea name="vaccinated_group"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>30. Do we need to vaccinate boys too?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="vaccinate_boys" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="vaccinate_boys" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>31. Should this be supported via NHS?</label>
+          <div class="options">
+            <label
+              ><input type="radio" name="nhs_support" value="Yes" /> Yes</label
+            >
+            <label
+              ><input type="radio" name="nhs_support" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>32. If aware, would you take the vaccine?</label>
+          <textarea name="take_vaccine"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >33. If not supported via NHS, would you recommend it for your
+            family?</label
+          >
+          <textarea name="recommend_family"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>34. Vaccinated or Non-Vaccinated?</label>
+          <div class="options">
+            <label
+              ><input
+                type="radio"
+                name="vaccination_status"
+                value="Vaccinated"
+              />
+              Vaccinated</label
+            >
+            <label
+              ><input
+                type="radio"
+                name="vaccination_status"
+                value="Non-Vaccinated"
+              />
+              Non-Vaccinated</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>35. Any other information or comments </label>
+          <textarea name="other_comments"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label
+            >36. Do you support if such information is put in the public domain
+            via Radio / TV / Newspaper etc?</label
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="public_support" value="Yes" />
+              Yes</label
+            >
+            <label
+              ><input type="radio" name="public_support" value="No" /> No</label
+            >
+          </div>
+        </div>
+
+        <button type="submit">Submit Survey</button>
+      </form>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("hpvForm");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(form);
+          const data = {};
+
+          for (let [key, value] of formData.entries()) {
+            if (key.endsWith("[]")) {
+              const cleanKey = key.replace("[]", "");
+              if (!data[cleanKey]) data[cleanKey] = [];
+              data[cleanKey].push(value);
+            } else {
+              data[key] = value;
+            }
+          }
+
+          try {
+            const response = await fetch("/.netlify/functions/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+              alert("Survey submitted successfully!");
+              form.reset();
+            } else {
+              alert("Submission failed.");
+            }
+          } catch (error) {
+            alert("Network error. Please try again.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
